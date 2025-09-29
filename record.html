@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sticky-header">
+        <h1>Attendance Records</h1>
+        <div class="actions">
+          <button id="export-all-btn" class="main-btn">
+            Export All Records
+          </button>
+        </div>
+      </div>
+      <div id="records-list" class="records-list"></div>
+      <div id="popup-message" style="display: none"></div>
+    </div>
+    <script src="record.js"></script>
+  </body>
+</html>

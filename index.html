@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attendance App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="nav-bar">
+      <button id="tab-attendance" class="nav-btn active">
+        Mark Attendance
+      </button>
+      <button id="tab-records" class="nav-btn">Records</button>
+    </div>
+    <div class="container" id="attendance-page">
+      <div class="sticky-header">
+        <h1>Attendance</h1>
+        <div class="actions">
+          <button id="submit-btn" class="main-btn">Submit</button>
+          <button id="download-btn" class="main-btn">Download CSV</button>
+        </div>
+      </div>
+      <div class="add-roll-bar">
+        <input
+          id="add-roll-input"
+          type="text"
+          placeholder="Add new roll number..."
+          maxlength="10"
+        />
+        <button
+          id="add-roll-btn"
+          class="main-btn"
+          style="width: auto; padding: 0.7rem 1.2rem; font-size: 1rem"
+        >
+          Add
+        </button>
+      </div>
+      <div class="toggle-bar">
+        <label
+          ><input type="checkbox" id="toggle-present" checked /> Show
+          Present</label
+        >
+        <label
+          ><input type="checkbox" id="toggle-absent" checked /> Show
+          Absent</label
+        >
+      </div>
+      <div id="student-list" class="student-list"></div>
+      <div id="message" class="message"></div>
+    </div>
+    <div class="container" id="records-page" style="display: none">
+      <div class="sticky-header">
+        <h1>Attendance Records</h1>
+      </div>
+      <div id="records-list" class="records-list"></div>
+    </div>
+    <script src="app.js"></script>
+    <div id="popup-message" style="display: none"></div>
+  </body>
+</html>
