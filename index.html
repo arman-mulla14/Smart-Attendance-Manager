@@ -22,7 +22,7 @@
         <h1>Attendance</h1>
         <div class="actions">
           <button id="submit-btn" class="main-btn">Submit</button>
-          <button id="download-btn" class="main-btn">Download CSV</button>
+          <button id="download-btn" class="main-btn">Download Excel</button>
         </div>
       </div>
       <div class="add-roll-bar">
@@ -49,6 +49,17 @@
           ><input type="checkbox" id="toggle-absent" checked /> Show
           Absent</label
         >
+        <label
+          style="
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+          "
+        >
+          <input type="checkbox" id="toggle-show-all-students" /> Show all
+          students
+        </label>
       </div>
       <div id="student-list" class="student-list"></div>
       <div id="message" class="message"></div>
@@ -56,6 +67,19 @@
     <div class="container" id="records-page" style="display: none">
       <div class="sticky-header">
         <h1>Attendance Records</h1>
+        <div class="actions">
+          <label
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.4rem;
+              font-weight: 600;
+            "
+          >
+            <input type="checkbox" id="toggle-show-all-records" checked /> Show
+            all records
+          </label>
+        </div>
       </div>
       <div id="records-list" class="records-list"></div>
     </div>

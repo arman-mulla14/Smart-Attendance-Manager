@@ -1,5 +1,138 @@
 // --- Configuration: List of students (roll numbers or names) ---
 let students = Array.from({length: 130}, (_, i) => (i + 1).toString());
+// Optional names for rolls. Add here, e.g., {'1': 'Arman'} to show after roll
+let studentNames = {
+  '1': 'ADAKE PARAS RAHUL',
+  '2': 'ADAKE SOURABH SADASHIV',
+  '3': 'AMBEKARI SANIYA ISAK',
+  '4': 'ATKIRE SNEHAL SUSHANT',
+  '5': 'BARAWADE GOURI SURESH',
+  '6': 'BAUCHKAR VAISHNAVI BABASAHEB',
+  '7': 'BELKAR SUSMITA JANARDAN',
+  '8': 'BHOSALE DIKSHA TANAJI',
+  '9': 'CHILE AKANKSHA ANNADA',
+  '10': 'CHOUGALE RAVJARDHAN BAJIRAO',
+  '11': 'CHOUGALE SANCHI NILESH',
+  '12': 'DABHOLE SUNIL SAMADHAN',
+  '13': 'DABHOLKAR SALONI NAMDEV',
+  '14': 'DESHMUKHAPATIL VEDA SANJAY',
+  '15': 'DIVASE PRATIKSHA PADHARINATH',
+  '16': 'DONGALE ADARSHA SAYAJI',
+  '17': 'DUBAL AARTI ARJUN',
+  '18': 'DUPADE ROHINI RAJENDRA',
+  '19': 'GAVADE RAVINDRA NILAKANTH',
+  '20': 'GHATAGE SONALI SHASHIKANT',
+  '21': 'GHODE SANGRAM TANAJI',
+  '22': 'GHOTANE VRUSHALI VASANT',
+  '23': 'GONDKAR RUTUJA DINESH',
+  '24': 'GURAV ROHAN RANJIT',
+  '25': 'HALINGALE SANIKA SANJIVKUMAR',
+  '26': 'INAMDAR VAISHNAVI AVADHUT',
+  '27': 'JADHAV POOJA ARVIND',
+  '28': 'JADHAV SAKSHI MANIK',
+  '29': 'JADHAV SANIKA PRADEEP',
+  '30': 'JADHAV SHIVAM VIJAY',
+  '31': 'JADHAV VISHWAVADIT AKHIRAO',
+  '32': 'JADHAV VISHWAJEET SANTOSH',
+  '33': 'JOUNJAL ABHIJEET RAMCHANDRA',
+  '34': 'KAMBLE DIKSHA DILIP',
+  '35': 'KAMBLE VAISHNAVI RAJENDRA',
+  '36': 'KARAPE MADHURI CHANDRAKANT',
+  '37': 'KHADE SAMRUDDHI KRISHNATH',
+  '38': 'KHARADE SHRENIKA SHARAD',
+  '39': 'KHOT PRAJAKTA VIJAY',
+  '40': 'KOKIL SHWETA SACHIN',
+  '41': 'KOKATE NIKHIL VIKAS',
+  '42': 'KOLHAPUR SHRVANI GAJANAN',
+  '43': 'KOLI BHAKTI PRAKASH',
+  '44': 'KOLI SANIKA SUNIL',
+  '45': 'KORE JANHAVI VIJAY',
+  '46': 'KORI ROHINI KALAPPA',
+  '47': 'KULKARNI MANASVI SANJAY',
+  '48': 'KUMBHAR SHRUTI DHONDIRAM',
+  '49': 'KURANE AKANKSHA MARUTI',
+  '50': 'LAD SWAPNALI SURESH',
+  '51': 'LOHAR PURVA MAHADEV',
+  '52': 'LOKARE ASHA PANDITRAO',
+  '53': 'LOTEKAR SANKET KRISHNAJI',
+  '54': 'MAGAR MRUNAL UMESH',
+  '55': 'MALI OMAKAR MAHADEV',
+  '56': 'MALI SHRUTIKA BALASO',
+  '57': 'MANE AKANKSHA SUNIL',
+  '58': 'MANE KETAN BALASO',
+  '59': 'MANE SANIKA AVINASH',
+  '60': 'MANE SANIKA JOTIRAM',
+  '61': 'MANE SANIKA PRADEEP',
+  '62': 'MANE SATYAJEEt SANJAY',
+  '63': 'MANE SHREYASH SUNIL',
+  '64': 'MANE VAISHNAVI RAMHARI',
+  '65': 'METHE VAISHNAVI RAJENDRA',
+  '66': 'MOHITE RUTUJA JAYKAR',
+  '67': 'MOHITE SAKSHI RAJENDRA',
+  '68': 'MORE TANVI PRAKASH',
+  '69': 'MULLA ARMAN BASHIR',
+  '70': 'MULLA KASHISH SHAKIL',
+  '71': 'NADAF MUSKAN IMAMHUSEN',
+  '72': 'NAIK PARIKSHIT PRAKASH',
+  '73': 'NIKAM VAISHNAVI RAJENDRA',
+  '74': 'PARALE SIDDHI KUMAR',
+  '75': 'PASARE SUMIT RAJENDRA',
+  '76': 'PATIL AKSHADA DATTATRAY',
+  '77': 'PATIL AKSHATA SUKUMAR',
+  '78': 'PATIL ANKITA VYUKA',
+  '79': 'PATIL APARNA SHASHIKANT',
+  '80': 'PATIL DHANASHRI ANKADRAO',
+  '81': 'PATIL HARSHADA SAKHARAM',
+  '82': 'PATIL JAYDEEP DAYANAND',
+  '83': 'PATIL NISHA NAMDEV',
+  '84': 'PATIL PRACHI ARVIND',
+  '85': 'PATIL PRANITA RAJENDRA',
+  '86': 'PATIL PRASAD MARUTI',
+  '87': 'PATIL PUJA ANANDA',
+  '88': 'PATIL RITESH RAJENDRA',
+  '89': 'PATIL SAHIL SAJAN',
+  '90': 'PATIL SAI VIKRAM',
+  '91': 'PATIL SAKSHI SANTOSH',
+  '92': 'PATIL SAKSHI SHAHAJI',
+  '93': 'PATIL SANDHYARANI PRAKASH',
+  '94': 'PATIL SANIKA MAHENDRA',
+  '95': 'PATIL SANIKA SANJAY',
+  '96': 'PATIL SHIVANI RAJSHEKHAR',
+  '97': 'PATIL SHRADDHA SADASHIV',
+  '98': 'PATIL SHREYA JAYSING',
+  '99': 'PATIL SHREYA MAHAVIR',
+  '100': 'PATIL SUYASH PRAKASH',
+  '101': 'PATIL TEJASWINI VIJAY',
+  '102': 'PATIL TRUPTI SANJAY',
+  '103': 'PATSUPE ARATI KUMAR',
+  '104': 'PAWAR ANKITA MOHAN',
+  '105': 'PAWAR DARSHANA KRUSHNAJI',
+  '106': 'PAWAR HARSHADA SANJAY',
+  '107': 'PHALLE PRANOTI PRADIPKUMAR',
+  '108': 'RANDIVE MRUDULA MAHADEV',
+  '109': 'SALUNKHE ADITYA CHANDRASHEKHAR',
+  '110': 'SALUNKHE PRIYANKA BABURAO',
+  '111': 'SALUNKHE SHWETA VIJAYKUMAR',
+  '112': 'SANGAVADEKAR SHREYA DEEPAK',
+  '113': 'SARATE SHARVARI UMESH',
+  '114': 'SASANE TUSHAR SAMBHAJI',
+  '115': 'SAVANT PRATIK SHANKAR',
+  '116': 'SAWANT YOGITA PARASHRAM',
+  '117': 'SHAH MAITHILI MANOJ',
+  '118': 'SHINDE BHAGYAT NIVAS',
+  '119': 'SHINDE PRATIKSHA BHAGAWAN',
+  '120': 'SONAVANE ABHIJEET SAWANT',
+  '121': 'SUTAR NETRA NAMDEV',
+  '122': 'SUTAR POOJA DADASO',
+  '123': 'SUTAR SANJYOT DADASO',
+  '124': 'TAMBEKAR TRUPTI SAGAR',
+  '125': 'THOMBARE RUTUJA ASHOK',
+  '126': 'TIKKA RAVINA DASHRATH',
+  '127': 'TIKKA SONAM DUNDLIK',
+  '128': 'UTHALE SANIYA SUBHASH',
+  '129': 'VHATAKAR RITESH ARUN',
+  '130': 'ZIRKANDE HARSH SHARAD'
+};
 
 // --- State: Attendance ---
 let attendance = {};
@@ -53,6 +186,65 @@ function updateShowMarkedToggle() {
   bar.querySelector('input').checked = showMarked;
 }
 
+// --- Present/Absent filter toggles (top bar checkboxes) ---
+let showPresentFilter = true;
+let showAbsentFilter = true;
+const presentToggleEl = document.getElementById('toggle-present');
+const absentToggleEl = document.getElementById('toggle-absent');
+if (presentToggleEl) {
+  showPresentFilter = !!presentToggleEl.checked;
+  presentToggleEl.addEventListener('change', (e) => {
+    showPresentFilter = !!e.target.checked;
+    renderList();
+  });
+}
+if (absentToggleEl) {
+  showAbsentFilter = !!absentToggleEl.checked;
+  absentToggleEl.addEventListener('change', (e) => {
+    showAbsentFilter = !!e.target.checked;
+    renderList();
+  });
+}
+const isAutoHideOn = () => true; // Always auto-hide after marking present
+
+// Checkbox: Show all students (next to Present/Absent)
+const showAllStudentsToggle = document.getElementById('toggle-show-all-students');
+if (showAllStudentsToggle && !showAllStudentsToggle._wired) {
+  showAllStudentsToggle._wired = true;
+  showAllStudentsToggle.addEventListener('change', () => {
+    if (showAllStudentsToggle.checked) {
+      // Turn off "Show marked students" and enable both filters
+      showMarked = false;
+      updateShowMarkedToggle();
+      showPresentFilter = true;
+      showAbsentFilter = true;
+      if (presentToggleEl) presentToggleEl.checked = true;
+      if (absentToggleEl) absentToggleEl.checked = true;
+    }
+    renderList();
+  });
+}
+
+// If user toggles Present/Absent or Show Marked, uncheck Show all students
+if (presentToggleEl) {
+  presentToggleEl.addEventListener('change', () => {
+    const el = document.getElementById('toggle-show-all-students');
+    if (el) el.checked = false;
+  });
+}
+if (absentToggleEl) {
+  absentToggleEl.addEventListener('change', () => {
+    const el = document.getElementById('toggle-show-all-students');
+    if (el) el.checked = false;
+  });
+}
+document.addEventListener('change', (e) => {
+  if (e.target && e.target.id === 'show-marked-toggle') {
+    const el = document.getElementById('toggle-show-all-students');
+    if (el) el.checked = false;
+  }
+});
+
 // --- Render student list ---
 const studentList = document.getElementById('student-list');
 function renderList() {
@@ -73,10 +265,30 @@ function renderList() {
   }
   updateShowMarkedToggle();
   studentList.innerHTML = '';
+
+  // Ensure attendance summary bar exists (shows counts of present/absent)
+  let attSummary = document.getElementById('attendance-summary');
+  if (!attSummary) {
+    attSummary = document.createElement('div');
+    attSummary.id = 'attendance-summary';
+    attSummary.style.margin = '0.4rem 1.2rem 0.2rem 1.2rem';
+    attSummary.style.background = '#fff';
+    attSummary.style.borderRadius = '12px';
+    attSummary.style.boxShadow = '0 1px 6px rgba(44,62,80,0.04)';
+    attSummary.style.padding = '0.6rem 0.9rem';
+    attSummary.style.fontSize = '0.98rem';
+    studentList.parentNode.insertBefore(attSummary, studentList);
+  }
   students.forEach(roll => {
     const status = attendance[roll];
-    if (!showMarked && status !== 'Unmarked') {
+    // If toggle is ON, show only marked (Present)
+    if (showMarked && status !== 'Present') {
       return;
+    }
+    // Apply Present/Absent filters (treat non-Present as Absent/Unmarked)
+    if (!showMarked) {
+      if (status === 'Present' && !showPresentFilter) return;
+      if (status !== 'Present' && !showAbsentFilter) return;
     }
     const card = document.createElement('div');
     card.className = 'student-card';
@@ -89,6 +301,13 @@ function renderList() {
     dot.className = 'status-dot';
     if (status === 'Present') dot.style.background = '#43e97b';
     else dot.style.background = '#bdbdbd';
+    // Name appears after the circle
+    const nameSpan = document.createElement('span');
+    if (studentNames[roll]) {
+      nameSpan.textContent = ' ' + studentNames[roll];
+      nameSpan.className = 'student-name';
+      nameSpan.style.marginLeft = '0.5rem';
+    }
     // Button
     const btnGroup = document.createElement('div');
     btnGroup.className = 'btn-group';
@@ -98,9 +317,28 @@ function renderList() {
       presentBtn.textContent = 'Present';
       presentBtn.onclick = (e) => {
         attendance[roll] = 'Present';
+        // If auto-hide is on, hide marked by unchecking Present filter
+        if (isAutoHideOn()) {
+          showPresentFilter = false;
+          if (presentToggleEl) presentToggleEl.checked = false;
+        }
         renderList();
       };
       btnGroup.appendChild(presentBtn);
+    } else if (status === 'Present') {
+      const undoBtn = document.createElement('button');
+      undoBtn.className = 'mark-btn';
+      undoBtn.textContent = 'Unmark';
+      undoBtn.onclick = () => {
+        attendance[roll] = 'Unmarked';
+        if (isAutoHideOn()) {
+          // When unmarking, ensure Present filter is visible again
+          showPresentFilter = true;
+          if (presentToggleEl) presentToggleEl.checked = true;
+        }
+        renderList();
+      };
+      btnGroup.appendChild(undoBtn);
     }
     // Layout
     const left = document.createElement('div');
@@ -108,10 +346,17 @@ function renderList() {
     left.style.alignItems = 'center';
     left.appendChild(rollSpan);
     left.appendChild(dot);
+    if (studentNames[roll]) left.appendChild(nameSpan);
     card.appendChild(left);
     card.appendChild(btnGroup);
     studentList.appendChild(card);
   });
+
+  // Update attendance summary counts
+  const totalPresent = students.reduce((acc, roll) => acc + (attendance[roll] === 'Present' ? 1 : 0), 0);
+  const totalStudents = students.length;
+  const totalAbsent = totalStudents - totalPresent;
+  attSummary.innerHTML = `<strong>Present:</strong> ${totalPresent} &nbsp; | &nbsp; <strong>Absent:</strong> ${totalAbsent} &nbsp; | &nbsp; <strong>Total:</strong> ${totalStudents}`;
 }
 renderList();
 
@@ -166,7 +411,8 @@ document.getElementById('submit-btn').addEventListener('click', () => {
     date,
     time,
     data: { ...attendance },
-    students: [...students]
+    students: [...students],
+    names: { ...studentNames }
   };
   saveRecord(record);
   showPopup('Record saved!');
@@ -185,7 +431,8 @@ document.getElementById('download-btn').addEventListener('click', () => {
     date,
     time,
     data: { ...attendance },
-    students: [...students]
+    students: [...students],
+    names: { ...studentNames }
   };
   saveRecord(record);
   downloadCSV(record);
@@ -213,7 +460,8 @@ downloadPresentBtn.onclick = () => {
     date,
     time,
     data: { ...attendance },
-    students: [...students]
+    students: [...students],
+    names: { ...studentNames }
   };
   saveRecord(record);
   downloadPresentOnly(record);
@@ -223,20 +471,27 @@ downloadPresentBtn.onclick = () => {
   }, 2000);
 };
 
-function downloadPresentOnly(record) {
-  const rows = [['Roll Number', 'Status']];
-  record.students.forEach(roll => {
-    const status = record.data[roll];
-    if (status === 'Present') {
-      rows.push([roll, status]);
-    }
-  });
-  const csv = rows.map(r => r.join(',')).join('\n');
-  const now = new Date();
-  const dateStr = getTodayDateStr();
-  const timeStr = now.toTimeString().slice(0,5).replace(/:/g, '-');
-  const filename = `mca-1_${dateStr}_${timeStr}.csv`;
-  const blob = new Blob([csv], { type: 'text/csv' });
+// --- Excel export utilities (mobile-friendly .xls) ---
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function rowsToExcelBlob(rows) {
+  const tableRowsHtml = rows
+    .map(row => `<tr>${row.map(cell => `<td>${escapeHtml(cell)}</td>`).join('')}</tr>`) 
+    .join('');
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8" />
+  <!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>
+  <x:Name>Sheet1</x:Name><x:WorksheetOptions><x:DisplayGridlines/>
+  </x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]-->
+  </head><body><table>${tableRowsHtml}</table></body></html>`;
+  return new Blob([html], { type: 'application/vnd.ms-excel' });
+}
+
+function downloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
@@ -247,27 +502,38 @@ function downloadPresentOnly(record) {
   URL.revokeObjectURL(url);
 }
 
-function downloadCSV(record) {
-  const rows = [['Roll Number', 'Status']];
+function downloadPresentOnly(record) {
+  const rows = [['Roll Number', 'Name', 'Status']];
   record.students.forEach(roll => {
     const status = record.data[roll];
     if (status === 'Present') {
-      rows.push([roll, status]);
+      const nameVal = (record.names && record.names[roll]) || '';
+      rows.push([roll, nameVal, status]);
+    }
+  });
+  const now = new Date();
+  const dateStr = getTodayDateStr();
+  const timeStr = now.toTimeString().slice(0,5).replace(/:/g, '-');
+  const filename = `mca-1_${dateStr}_${timeStr}.xls`;
+  const blob = rowsToExcelBlob(rows);
+  downloadBlob(blob, filename);
+}
+
+function downloadCSV(record) {
+  const rows = [['Roll Number', 'Name', 'Status']];
+  record.students.forEach(roll => {
+    const status = record.data[roll];
+    if (status === 'Present') {
+      const nameVal = (record.names && record.names[roll]) || '';
+      rows.push([roll, nameVal, status]);
     }
   });
   const dateStr = getTodayDateStr();
   const now = new Date();
   const timeStr = now.toTimeString().slice(0,5).replace(/:/g, '-');
-  const filename = `mca-1_${dateStr}_${timeStr}.csv`;
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  const filename = `mca-1_${dateStr}_${timeStr}.xls`;
+  const blob = rowsToExcelBlob(rows);
+  downloadBlob(blob, filename);
 }
 
 // --- Records Page ---
@@ -300,12 +566,35 @@ function renderRecords() {
       </select>
     `;
     recordsPage.insertBefore(filterBar, recordsList);
-    filterBar.querySelector('#filter-month').addEventListener('change', renderRecords);
-    filterBar.querySelector('#filter-year').addEventListener('change', renderRecords);
+    filterBar.querySelector('#filter-month').addEventListener('change', () => {
+      const showAllToggle = document.getElementById('toggle-show-all-records');
+      if (showAllToggle) showAllToggle.checked = false;
+      renderRecords();
+    });
+    filterBar.querySelector('#filter-year').addEventListener('change', () => {
+      const showAllToggle = document.getElementById('toggle-show-all-records');
+      if (showAllToggle) showAllToggle.checked = false;
+      renderRecords();
+    });
   }
-  // Get selected month/year
-  const selectedMonth = document.getElementById('filter-month')?.value || 'All';
-  const selectedYear = document.getElementById('filter-year')?.value || 'All';
+  // Hook up the Show all records checkbox
+  const showAllToggle = document.getElementById('toggle-show-all-records');
+  if (showAllToggle && !showAllToggle._wired) {
+    showAllToggle._wired = true;
+    showAllToggle.addEventListener('change', () => {
+      const mSel = document.getElementById('filter-month');
+      const ySel = document.getElementById('filter-year');
+      if (showAllToggle.checked) {
+        if (mSel) mSel.value = 'All';
+        if (ySel) ySel.value = 'All';
+      }
+      renderRecords();
+    });
+  }
+  // Get selected month/year (or override with Show all toggle)
+  const showAllChecked = document.getElementById('toggle-show-all-records')?.checked;
+  const selectedMonth = showAllChecked ? 'All' : (document.getElementById('filter-month')?.value || 'All');
+  const selectedYear = showAllChecked ? 'All' : (document.getElementById('filter-year')?.value || 'All');
   // Filter records
   let filteredRecords = [...records];
   if (selectedMonth !== 'All') {
@@ -356,6 +645,30 @@ function renderRecords() {
     recordsList.innerHTML = '<div style="text-align:center;color:#888;padding:2rem 0;">No attendance records for this period.</div>';
     return;
   }
+  // Summary totals for currently displayed records
+  let summaryBar = document.getElementById('records-summary');
+  if (!summaryBar) {
+    summaryBar = document.createElement('div');
+    summaryBar.id = 'records-summary';
+    summaryBar.style.display = 'flex';
+    summaryBar.style.justifyContent = 'space-between';
+    summaryBar.style.alignItems = 'center';
+    summaryBar.style.margin = '0.6rem 1.2rem';
+    summaryBar.style.padding = '0.6rem 0.9rem';
+    summaryBar.style.background = '#fff';
+    summaryBar.style.borderRadius = '12px';
+    summaryBar.style.boxShadow = '0 1px 6px rgba(44,62,80,0.04)';
+    recordsPage.insertBefore(summaryBar, recordsList);
+  }
+  let totalPresent = 0;
+  let totalAbsent = 0;
+  sortedRecords.forEach(record => {
+    record.students.forEach(roll => {
+      const isPresent = record.data[roll] === 'Present';
+      if (isPresent) totalPresent += 1; else totalAbsent += 1;
+    });
+  });
+  summaryBar.innerHTML = `<div><strong>Total records:</strong> ${sortedRecords.length}</div><div><strong>Total presents:</strong> ${totalPresent}</div><div><strong>Total absents:</strong> ${totalAbsent}</div>`;
   sortedRecords.forEach((record, idx) => {
     const card = document.createElement('div');
     card.className = 'record-card';
@@ -409,10 +722,11 @@ function showRecordDetails(record) {
   }
   let html = `<h3 style='margin-top:0;'>Present Students for ${record.date}</h3>`;
   html += '<table style="width:100%;border-collapse:collapse;font-size:1rem;">';
-  html += '<tr><th style="text-align:left;padding:4px 8px;">Roll Number</th><th style="text-align:left;padding:4px 8px;">Status</th></tr>';
+  html += '<tr><th style="text-align:left;padding:4px 8px;">Roll Number</th><th style="text-align:left;padding:4px 8px;">Name</th><th style="text-align:left;padding:4px 8px;">Status</th></tr>';
   record.students.forEach(roll => {
     if (record.data[roll] === 'Present') {
-      html += `<tr><td style='padding:4px 8px;'>${roll}</td><td style='padding:4px 8px;'>${record.data[roll]}</td></tr>`;
+      const nameVal = (record.names && record.names[roll]) || '';
+      html += `<tr><td style='padding:4px 8px;'>${roll}</td><td style='padding:4px 8px;'>${nameVal}</td><td style='padding:4px 8px;'>${record.data[roll]}</td></tr>`;
     }
   });
   html += '</table>';
